@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School Lost &amp; Found - Website tìm đồ thất lạc trong trường học</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <a class="brand" href="#top">School Lost &amp; Found</a>
+  <nav>
+    <a href="#tim">Tìm đồ</a>
+    <a href="#cach-dung">Cách dùng</a>
+    <button class="btn js-post" type="button">Đăng tin nhặt được</button>
+  </nav>
+</header>
+
+<main>
+  <section class="sec hero">
+    <div>
+      <h1>School<br>Lost &amp;<br>Found</h1>
+      <p>Học sinh hay để quên áo khoác, bình nước, sách vở. Người nhặt được thì không biết tìm chủ nhân ở đâu. Đăng tin ở đây để mọi người cùng tìm.</p>
+      <div class="cta">
+        <a class="btn" href="#tim">Tìm đồ của tôi</a>
+        <button class="btn ghost js-post" type="button">Đăng tin nhặt được</button>
+      </div>
+    </div>
+    <aside class="tag" aria-label="Thống kê">
+      <b id="nOpen">0</b><span>món đồ đang tìm chủ</span>
+      <hr>
+      <b id="nDone">0</b><span>món đồ đã về đúng chủ</span>
+    </aside>
+  </section>
+
+  <section class="sec" id="tim">
+    <h2>Đồ đang tìm chủ</h2>
+    <div class="filters" id="filters" role="search">
+      <input id="q" type="search" placeholder="Tìm theo tên, màu sắc, mô tả" aria-label="Từ khóa tìm kiếm">
+      <select id="fCat" aria-label="Loại đồ"></select>
+      <select id="fLoc" aria-label="Nơi nhặt"></select>
+      <label class="chk"><input type="checkbox" id="fAll"> Hiện cả đồ đã trả</label>
+    </div>
+    <p id="count" aria-live="polite"></p>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <section class="sec" id="cach-dung">
+    <h2>Cách sử dụng đơn giản</h2>
+    <ol class="steps">
+      <li><span>Người nhặt đăng thông tin món đồ lên website.</span></li>
+      <li><span>Người mất tìm kiếm và đối chiếu thông tin.</span></li>
+      <li><span>Hai bên xác nhận rồi hẹn nơi nhận đồ an toàn.</span></li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2>Lợi ích cho cả trường</h2>
+    <div class="who-grid">
+      <div class="who"><h3>Học sinh</h3><p>Học sinh dễ tìm lại đồ dùng của mình.</p></div>
+      <div class="who o"><h3>Người nhặt</h3><p>Người nhặt có cách báo tin rõ ràng.</p></div>
+      <div class="who g"><h3>Nhà trường</h3><p>Nhà trường giảm thời gian hỗ trợ tìm đồ.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><b>Cùng giúp đồ thất lạc trở về đúng chủ.</b> School Lost &amp; Found kết nối người mất đồ với người nhặt được.</p>
+</footer>
+
+<dialog id="postDlg" aria-labelledby="postTitle">
+  <form id="postForm" class="dlg">
+    <h2 id="postTitle">Đăng tin nhặt được</h2>
+    <label>Ảnh món đồ<input type="file" id="pImg" accept="image/*"></label>
+    <div id="pPrev" class="prev"></div>
+    <label>Tên món đồ<input id="pTitle" required maxlength="60" placeholder="Ví dụ: Bình nước màu xanh"></label>
+    <div class="two">
+      <label>Loại đồ<select id="pCat"></select></label>
+      <label>Nơi nhặt<select id="pLoc"></select></label>
+    </div>
+    <label>Mô tả<textarea id="pDesc" required rows="3" maxlength="300" placeholder="Màu sắc, nhãn hiệu, đặc điểm dễ nhận ra"></textarea></label>
+    <label>Hiện đang giữ đồ ở<input id="pHold" maxlength="60" placeholder="Ví dụ: Phòng bảo vệ"></label>
+    <div class="two">
+      <label>Tên và lớp của bạn<input id="pWho" required maxlength="40"></label>
+      <label>Cách liên hệ<input id="pContact" required maxlength="60" placeholder="Zalo hoặc số điện thoại"></label>
+    </div>
+    <small>Cách liên hệ chỉ hiện khi có người bấm “Đây là đồ của tôi”.</small>
+    <div class="row">
+      <button class="btn" type="submit">Đăng tin</button>
+      <button class="btn ghost" type="button" data-close>Hủy</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="detail" aria-label="Chi tiết món đồ"></dialog>
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
